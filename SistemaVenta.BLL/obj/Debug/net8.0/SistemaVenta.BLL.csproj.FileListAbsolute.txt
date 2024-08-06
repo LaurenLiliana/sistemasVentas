@@ -1,0 +1,17 @@
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\bin\Debug\net8.0\SistemaVenta.BLL.deps.json
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\bin\Debug\net8.0\SistemaVenta.BLL.dll
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\bin\Debug\net8.0\SistemaVenta.BLL.pdb
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\SistemaVenta.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\SistemaVenta.BLL.AssemblyInfoInputs.cache
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\SistemaVenta.BLL.AssemblyInfo.cs
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\SistemaVenta.BLL.csproj.CoreCompileInputs.cache
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\SistemaVenta.BLL.dll
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\refint\SistemaVenta.BLL.dll
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\SistemaVenta.BLL.pdb
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\ref\SistemaVenta.BLL.dll
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\bin\Debug\net8.0\SistemaVenta.DAL.dll
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\bin\Debug\net8.0\SistemaVenta.Entity.dll
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\bin\Debug\net8.0\SistemaVenta.DAL.pdb
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\bin\Debug\net8.0\SistemaVenta.Entity.pdb
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\SistemaVenta.BLL.csproj.AssemblyReference.cache
+C:\Proyecto\SolucionSistemaVenta\SistemaVenta.BLL\obj\Debug\net8.0\SistemaV.93BC7325.Up2Date
