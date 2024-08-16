@@ -4105,19 +4105,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\laure\\.nuget\\packages\\": {}
+    "C:\\Users\\Elkin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\laure\\OneDrive\\Documentos\\ProyectoPOO\\SolucionSistemaVenta\\SistemaVenta.Entity\\SistemaVenta.Entity.csproj",
+      "projectUniqueName": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.Entity\\SistemaVenta.Entity.csproj",
       "projectName": "SistemaVenta.Entity",
-      "projectPath": "C:\\Users\\laure\\OneDrive\\Documentos\\ProyectoPOO\\SolucionSistemaVenta\\SistemaVenta.Entity\\SistemaVenta.Entity.csproj",
-      "packagesPath": "C:\\Users\\laure\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\laure\\OneDrive\\Documentos\\ProyectoPOO\\SolucionSistemaVenta\\SistemaVenta.Entity\\obj\\",
+      "projectPath": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.Entity\\SistemaVenta.Entity.csproj",
+      "packagesPath": "C:\\Users\\Elkin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\laure\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Elkin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

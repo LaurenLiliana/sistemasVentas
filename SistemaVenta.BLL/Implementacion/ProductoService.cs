@@ -12,12 +12,11 @@ using SistemaVenta.Entity;
 namespace SistemaVenta.BLL.Implementacion
 {
     public class ProductoService : IProductoService
-    { 
+    {
         private readonly IGenericRepository<Producto> _repositorio;
         private readonly IFireBaseService _fireBaseServicio;
-        
 
-        public ProductoService(IGenericRepository<Producto> repositorio,
+        public ProductoService(IGenericRepository<Producto> repositorio, 
             IFireBaseService fireBaseServicio)
         {
             _repositorio = repositorio;
@@ -28,53 +27,46 @@ namespace SistemaVenta.BLL.Implementacion
         {
             IQueryable<Producto> query = await _repositorio.Consultar();
             return query.Include(c => c.IdCategoriaNavigation).ToList();
-
         }
+
         public async Task<Producto> Crear(Producto entidad, Stream imagen = null, string NombreImagen = "")
         {
             Producto producto_existe = await _repositorio.Obtener(p => p.CodigoBarra == entidad.CodigoBarra);
 
-            if (producto_existe != null)
-            {
-                throw new TaskCanceledException("El codigo de barras ya existe");
-            }
+            if(producto_existe != null)
+                throw new TaskCanceledException("El codigo de barra ya existe");
 
             try
             {
                 entidad.NombreImagen = NombreImagen;
-                if (imagen != null)
-                {
+                if (imagen != null) {
                     string urlImage = await _fireBaseServicio.SubirStorage(imagen, "carpeta_producto", NombreImagen);
-                    entidad.UrlImagen = urlImage;
+                    entidad.UrlImagen = urlImage; 
                 }
 
                 Producto producto_creado = await _repositorio.Crear(entidad);
 
-                if (producto_creado.IdProducto == 0)
-                {
+                if (producto_creado.IdProducto == 0) 
                     throw new TaskCanceledException("No se pudo crear el producto");
-                }
 
                 IQueryable<Producto> query = await _repositorio.Consultar(p => p.IdProducto == producto_creado.IdProducto);
 
                 producto_creado = query.Include(c => c.IdCategoriaNavigation).First();
 
                 return producto_creado;
-            }
-            catch (Exception ex)
-            {
+
+            }   
+            catch(Exception ex){
                 throw;
             }
         }
 
-        public async Task<Producto> Editar(Producto entidad, Stream imagen = null)
+        public async Task<Producto> Editar(Producto entidad, Stream imagen = null, string NombreImagen = "")
         {
             Producto producto_existe = await _repositorio.Obtener(p => p.CodigoBarra == entidad.CodigoBarra && p.IdProducto != entidad.IdProducto);
 
-            if (producto_existe != null) 
-            {
+            if(producto_existe != null)
                 throw new TaskCanceledException("El codigo de barra ya existe");
-            }
 
             try
             {
@@ -90,25 +82,25 @@ namespace SistemaVenta.BLL.Implementacion
                 producto_para_editar.Precio = entidad.Precio;
                 producto_para_editar.EsActivo = entidad.EsActivo;
 
-                if (imagen != null) 
-                {
-                    string urlImagen = await _fireBaseServicio.SubirStorage(imagen, "carpeta_prodcuto", producto_para_editar.NombreImagen);
+                if (producto_para_editar.NombreImagen == "") {
+                    producto_para_editar.NombreImagen = NombreImagen;
+                }
+
+                if (imagen != null) {
+                    string urlImagen = await _fireBaseServicio.SubirStorage(imagen, "carpeta_producto", producto_para_editar.NombreImagen);
                     producto_para_editar.UrlImagen = urlImagen;
                 }
 
                 bool respuesta = await _repositorio.Editar(producto_para_editar);
 
-                if (!respuesta) 
-                {
-                    throw new TaskCanceledException("No se pudo editar el prodcuto");
-                }
+                if(!respuesta)
+                    throw new TaskCanceledException("No se pudo editar el producto");
 
                 Producto producto_editado = queryProducto.Include(c => c.IdCategoriaNavigation).First();
 
                 return producto_editado;
             }
-            catch (Exception ex) 
-            {
+            catch { 
                 throw;
             }
         }
@@ -119,28 +111,23 @@ namespace SistemaVenta.BLL.Implementacion
             {
                 Producto producto_encontrado = await _repositorio.Obtener(p => p.IdProducto == idProducto);
 
-                if (producto_encontrado == null) 
-                {
+                if(producto_encontrado == null)
                     throw new TaskCanceledException("El producto no existe");
-                }
 
                 string nombreImagen = producto_encontrado.NombreImagen;
 
                 bool respuesta = await _repositorio.Eliminar(producto_encontrado);
 
-                if (respuesta) 
-                {
+                if (respuesta)
                     await _fireBaseServicio.EliminarStorage("carpeta_producto", nombreImagen);
 
-                }
-
                 return true;
-
             }
-            catch  
-            {
+            catch {
                 throw;
             }
         }
+
+       
     }
 }

@@ -2,10 +2,10 @@
 
 using AutoMapper;
 using Newtonsoft.Json;
+using SistemaVenta.AplicacionWeb.Models.ViewModels;
 using SistemaVenta.AplicacionWeb.Utilidades.Response;
 using SistemaVenta.BLL.Interfaces;
 using SistemaVenta.Entity;
-using SistemaVenta.AplicacionWeb.Models.ViewModels;
 
 namespace SistemaVenta.AplicacionWeb.Controllers
 {
@@ -13,14 +13,12 @@ namespace SistemaVenta.AplicacionWeb.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IProductoService _productoServicio;
-        private readonly ICategoriaService _categoriaServicio;
 
-        public ProductoController(IMapper mapper,
+        public ProductoController(IMapper mapper, 
             IProductoService productoServicio)
         {
             _mapper = mapper;
             _productoServicio = productoServicio;
-            
         }
 
         public IActionResult Index()
@@ -34,6 +32,7 @@ namespace SistemaVenta.AplicacionWeb.Controllers
             List<VMProducto> vmProductoLista = _mapper.Map<List<VMProducto>>(await _productoServicio.Lista());
 
             return StatusCode(StatusCodes.Status200OK, new { data = vmProductoLista });
+
         }
 
         [HttpPost]
@@ -43,7 +42,43 @@ namespace SistemaVenta.AplicacionWeb.Controllers
 
             try
             {
-                VMProducto vMProducto = JsonConvert.DeserializeObject<VMProducto>(modelo);
+                VMProducto vmProducto = JsonConvert.DeserializeObject<VMProducto>(modelo);
+
+                string nombreImagen = "";
+                Stream imagenStream = null;
+
+                if (imagen != null) { 
+                    string nombre_en_codigo = Guid.NewGuid().ToString("N");
+                    string extension = Path.GetExtension(imagen.FileName);
+                    nombreImagen = string.Concat(nombre_en_codigo, extension);
+                    imagenStream = imagen.OpenReadStream();
+                }
+
+                Producto producto_creado = await _productoServicio.Crear(_mapper.Map<Producto>(vmProducto), imagenStream, nombreImagen);
+
+                vmProducto = _mapper.Map<VMProducto>(producto_creado);
+                
+                gResponse.Estado = true;
+                gResponse.Objeto = vmProducto;
+
+            }
+            catch(Exception ex){
+                gResponse.Estado = false;
+                gResponse.Mensaje = ex.Message;
+            }
+
+            return StatusCode(StatusCodes.Status200OK, gResponse);
+
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Editar([FromForm] IFormFile imagen, [FromForm] string modelo)
+        {
+            GenericResponse<VMProducto> gResponse = new GenericResponse<VMProducto>();
+
+            try
+            {
+                VMProducto vmProducto = JsonConvert.DeserializeObject<VMProducto>(modelo);
 
                 string nombreImagen = "";
                 Stream imagenStream = null;
@@ -55,44 +90,14 @@ namespace SistemaVenta.AplicacionWeb.Controllers
                     nombreImagen = string.Concat(nombre_en_codigo, extension);
                     imagenStream = imagen.OpenReadStream();
                 }
-                Producto producto_creado = await _productoServicio.Crear(_mapper.Map<Producto>(vMProducto), imagenStream, nombreImagen);
 
-                vMProducto = _mapper.Map<VMProducto>(producto_creado);
+                Producto producto_editado = await _productoServicio.Editar(_mapper.Map<Producto>(vmProducto), imagenStream, nombreImagen);
 
-                gResponse.Estado = true;
-                gResponse.Objeto = vMProducto;
-            }
-            catch (Exception ex) 
-            {
-                gResponse.Estado=  false;
-                gResponse.Mensaje = ex.Message;
-            }
-
-            return StatusCode(StatusCodes.Status200OK, gResponse);
-        }
-
-        [HttpPut]
-
-        public async Task<IActionResult> Editar([FromForm] IFormFile imagen, [FromForm] string modelo)
-        {
-            GenericResponse<VMProducto> gResponse = new GenericResponse<VMProducto>();
-
-            try
-            {
-                VMProducto vMProducto = JsonConvert.DeserializeObject<VMProducto>(modelo);
-
-                Stream imagenStream = null;
-
-                if (imagen != null)
-                {
-                    imagenStream = imagen.OpenReadStream();
-                }
-                Producto producto_editado = await _productoServicio.Editar(_mapper.Map<Producto>(vMProducto), imagenStream);
-
-                vMProducto = _mapper.Map<VMProducto>(producto_editado);
+                vmProducto = _mapper.Map<VMProducto>(producto_editado);
 
                 gResponse.Estado = true;
-                gResponse.Objeto = vMProducto;
+                gResponse.Objeto = vmProducto;
+
             }
             catch (Exception ex)
             {
@@ -101,20 +106,19 @@ namespace SistemaVenta.AplicacionWeb.Controllers
             }
 
             return StatusCode(StatusCodes.Status200OK, gResponse);
+
         }
 
         [HttpDelete]
+        public async Task<IActionResult> Eliminar(int IdProducto) {
 
-        public async Task<IActionResult> Eliminar(int IdProducto) 
-        {
             GenericResponse<string> gResponse = new GenericResponse<string>();
 
             try
             {
                 gResponse.Estado = await _productoServicio.Eliminar(IdProducto);
             }
-            catch (Exception ex) 
-            {
+            catch(Exception ex){
                 gResponse.Estado = false;
                 gResponse.Mensaje = ex.Message;
             }
@@ -122,5 +126,6 @@ namespace SistemaVenta.AplicacionWeb.Controllers
             return StatusCode(StatusCodes.Status200OK, gResponse);
 
         }
+
     }
 }

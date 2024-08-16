@@ -2766,19 +2766,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\laure\\.nuget\\packages\\": {}
+    "C:\\Users\\Elkin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\laure\\OneDrive\\Documentos\\ProyectoPOO\\SolucionSistemaVenta\\SistemaVenta.DAL\\SistemaVenta.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.DAL\\SistemaVenta.DAL.csproj",
       "projectName": "SistemaVenta.DAL",
-      "projectPath": "C:\\Users\\laure\\OneDrive\\Documentos\\ProyectoPOO\\SolucionSistemaVenta\\SistemaVenta.DAL\\SistemaVenta.DAL.csproj",
-      "packagesPath": "C:\\Users\\laure\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\laure\\OneDrive\\Documentos\\ProyectoPOO\\SolucionSistemaVenta\\SistemaVenta.DAL\\obj\\",
+      "projectPath": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.DAL\\SistemaVenta.DAL.csproj",
+      "packagesPath": "C:\\Users\\Elkin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\laure\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Elkin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2793,8 +2793,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\laure\\OneDrive\\Documentos\\ProyectoPOO\\SolucionSistemaVenta\\SistemaVenta.Entity\\SistemaVenta.Entity.csproj": {
-              "projectPath": "C:\\Users\\laure\\OneDrive\\Documentos\\ProyectoPOO\\SolucionSistemaVenta\\SistemaVenta.Entity\\SistemaVenta.Entity.csproj"
+            "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.Entity\\SistemaVenta.Entity.csproj": {
+              "projectPath": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.Entity\\SistemaVenta.Entity.csproj"
             }
           }
         }
