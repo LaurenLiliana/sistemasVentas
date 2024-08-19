@@ -3,7 +3,7 @@ let ValorImpuesto = 0;
 
 $(document).ready(function () {
 
-    fetch("/Venta/ListaTipoDocumentoVenta")
+    fetch("/Venta/ListaTipoDocumentoventa")
         .then(response => {
             return response.ok ? response.json() : Promise.reject(response);
         })
@@ -112,7 +112,7 @@ $("#cboBuscarProducto").on("select2:select", function (e) {
     let producto_encontrado = ProductosParaVenta.filter(p => p.idProducto == data.id)
 
     if (producto_encontrado.length > 0) {
-        $("#cboBuscarProducto").val("").trigger("chnage")
+        $("#cboBuscarProducto").val("").trigger("change")
         toastr.warning("", "El producto ya fue agregado")
         return false
     }
@@ -152,7 +152,7 @@ $("#cboBuscarProducto").on("select2:select", function (e) {
             ProductosParaVenta.push(producto)
 
             mostrarProducto_Precios();
-            $("#cboBuscarProducto").val("").trigger("chnage")
+            $("#cboBuscarProducto").val("").trigger("change")
             swal.close()
 
         }
@@ -222,7 +222,7 @@ $("#btnTerminarVenta").click(function(){
         idTipoDocumentoVenta: $("#cboTipoDocumentoVenta").val(),
         documentoCliente: $("#txtDocumentoCliente").val(),
         nombreCliente: $("#txtNombreCliente").val(),
-        subTotal: $("txtSubTotal").val(),
+        subTotal: $("#txtSubTotal").val(),
         impuestoTotal: $("#txtIGV").val(),
         total: $("#txtTotal").val(),
         DetalleVenta: vmDetalleVenta

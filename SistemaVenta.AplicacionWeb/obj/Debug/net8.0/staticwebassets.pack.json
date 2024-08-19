@@ -49,8 +49,24 @@
       "PackagePath": "staticwebassets\\js\\sb-admin-2.min.js"
     },
     {
+      "Id": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\wwwroot\\js\\vistas\\DashBoard_Index.js",
+      "PackagePath": "staticwebassets\\js\\vistas\\DashBoard_Index.js"
+    },
+    {
+      "Id": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\wwwroot\\js\\vistas\\Historial_Venta.js",
+      "PackagePath": "staticwebassets\\js\\vistas\\Historial_Venta.js"
+    },
+    {
+      "Id": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\wwwroot\\js\\vistas\\Home_Perfil.js",
+      "PackagePath": "staticwebassets\\js\\vistas\\Home_Perfil.js"
+    },
+    {
       "Id": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\wwwroot\\js\\vistas\\Nueva_Venta.js",
       "PackagePath": "staticwebassets\\js\\vistas\\Nueva_Venta.js"
+    },
+    {
+      "Id": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\wwwroot\\js\\vistas\\Reporte_Index.js",
+      "PackagePath": "staticwebassets\\js\\vistas\\Reporte_Index.js"
     },
     {
       "Id": "C:\\Users\\Elkin\\Desktop\\Proyecto\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\wwwroot\\js\\vistas\\Usuario_Index.js",
